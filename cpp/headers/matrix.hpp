@@ -6,7 +6,6 @@ private:
     int size = -1;
     bool isDiagonal = false; 
 
-
 protected:
     long double ** matrixA;
     long double * matrixB;
@@ -62,7 +61,7 @@ public:
                 coef = matrixA[j][i] / matrixA[i][i];
 
                 matrixB[j] -= matrixB[i] * coef;
-                SubtractColumns(matrixA[j], matrixA[i], coef);
+                SubtractRows(matrixA[j], matrixA[i], coef);
             }
             std::cout << "Iteration nubmer: " << i + 1 << std::endl;
             Print();
@@ -75,7 +74,7 @@ public:
                 coef = matrixA[j][i] / matrixA[i][i];
 
                 matrixB[j] -= matrixB[i] * coef;
-                SubtractColumns(matrixA[j], matrixA[i], coef);
+                SubtractRows(matrixA[j], matrixA[i], coef);
             }
             std::cout << "Iteration nubmer: " << size - i << std::endl;
             Print();
@@ -171,7 +170,7 @@ protected:
 private:
     ////////Work with matrix
     //subtract columns
-    void SubtractColumns(long double* columnFrom, long double* columnWhat, long double coef){
+    void SubtractRows(long double* columnFrom, long double* columnWhat, long double coef){
         for (int i = 0; i < size; i++){
             columnFrom[i] -= columnWhat[i] * coef;
         }
