@@ -339,7 +339,7 @@ public:
     }
 
     //Print
-    void Print(int precision = 6){
+    virtual void Print(int precision = 6){
         // Автоматически находим максимальную необходимую ширину
         int max_cell_width = 0;
         for (int i = 0; i < size; i++){
@@ -372,7 +372,7 @@ public:
         int total_width = matrix_width + (hasBPart ? max_cell_width + 3 : 2);
         
         // Верхняя рамка
-        std::cout << "┌" << std::string(total_width, ' ') << "┐" << std::endl;
+        std::cout << "┌" << std::string(total_width + 2, ' ') << "┐" << std::endl;
         
         for (int i = 0; i < size; i++){
             std::cout << "│ ";
@@ -396,7 +396,7 @@ public:
         }
         
         // Нижняя рамка
-        std::cout << "└" << std::string(total_width, ' ') << "┘" << std::endl;
+        std::cout << "└" << std::string(total_width + 2, ' ') << "┘" << std::endl;
         std::cout << std::defaultfloat;
     }
 
