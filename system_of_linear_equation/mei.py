@@ -1,5 +1,8 @@
-from linear_equation.perfect_table import perfect_table_manager
+'''Base'''
 from system_of_linear_equation.matrix_utils import matrix_multiply, matrix_subtract, vector_norm, jacobian_inverse
+
+from linear_equation.perfect_table import perfect_table_manager
+
 
 def mei_with_jacobian(fun1, fun2, der1_x, der1_y, der2_x, der2_y, x0=0, y0=0, eps=0.001, max_iter=1000):
     """

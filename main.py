@@ -1,6 +1,9 @@
-import math
 from system_of_linear_equation.mei import mei_with_jacobian
 from system_of_linear_equation.newton_method import newton_method
+from system_of_linear_equation.mei_slu import mei_slu
+
+import math
+
 
 # Функции системы
 def fun1(x, y):
@@ -15,6 +18,13 @@ def fun_simple(x01, x02):
     x1 = (term)**(3.0/2.0)
     x2 = x01*x01 / 2.0
     return (x1, x2)
+
+'''СЛАУ'''
+def slau(x, y):
+    x_new = (8 - 2*y) / 3
+    y_new = 2*x - 1
+    return (x_new, y_new)
+
 
 # Производные для якобиана
 def der1_x(x, y):
@@ -39,6 +49,11 @@ def main():
     print('Метод Ньютона')
     newton_method(fun1, fun2, der1_x, der1_y, der2_x, der2_y, 
                  x01=1, x02=1, eps=0.000000000001)
+    print()
+
+    print('МПИ СЛАУ')
+    mei_slu(slau, 1e-10)
+
     print()
 
 if __name__ == '__main__':
